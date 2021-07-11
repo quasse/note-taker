@@ -7,10 +7,10 @@ const app = express();
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static("public"));
 
 const htmlRoutes = require("./routes/htmlRoutes");
 const apiRoutes = require("./routes/apiRoutes");
-//const [notes] = require("./db/db.json");
 
 app.use("/api", apiRoutes);
 app.use("/", htmlRoutes);
