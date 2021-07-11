@@ -1,12 +1,13 @@
 const router = require("express").Router();
 const notes = require("../../db/db.json");
+var uniquid = require("uniquid");
 
 router.get("/notes", (req, res) => {
   res.json(notes);
 });
 
 router.post("/notes", (req, res) => {
-  req.body.id = notes.length.toString();
+  req.body.id = uniquid();
   notes.push(req.body);
   res.json(notes);
 });
